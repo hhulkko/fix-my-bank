@@ -1,5 +1,10 @@
 A Greasemonkey script to help me navigate in my webbank
 
+Installation:
+
+1) Install Greasemonkey: https://addons.mozilla.org/en-us/firefox/addon/greasemonkey/
+2) Go to https://github.com/hhulkko/fix-my-bank/raw/master/fix-my-bank.user.js
+
 Commands:
 
 Ctrl-m: take me to my payment templates
