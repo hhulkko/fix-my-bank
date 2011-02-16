@@ -5,6 +5,8 @@
 // @require https://github.com/hhulkko/fix-my-bank/raw/master/js/rx.js
 // @require https://github.com/hhulkko/fix-my-bank/raw/master/js/rx.jQuery.js
 // @require https://github.com/hhulkko/fix-my-bank/raw/master/js/rx.html.js
+// @require https://github.com/hhulkko/fix-my-bank/raw/master/js/rx.aggregates.js
+// @require https://github.com/hhulkko/fix-my-bank/raw/master/js/rx.joins.js
 // ==UserScript==
 
 $(document).ready(function() {
