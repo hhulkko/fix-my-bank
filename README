@@ -1,0 +1,14 @@
+A Greasemonkey script to help me navigate in my webbank
+
+Commands:
+
+Ctrl-m: take me to my payment templates
+Ctrl-j: scroll down payment templates
+Ctrl-k: scroll up payment templates
+Ctrl-enter: select payment template
+
+Dependencies:
+
+jQuery: http://jquery.com/
+Rx for javascript: http://msdn.microsoft.com/en-us/devlabs/ee794896
+validation.js: https://github.com/jonifreeman/learn-rx
