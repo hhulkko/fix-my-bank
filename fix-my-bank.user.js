@@ -42,6 +42,7 @@ $(document).ready(function() {
   var paymentOnEnter = selectedPayment.TakeUntil(enter).Final()
     .SelectMany(find("a:contains('Muuta')"))
     .SelectMany(href)
+    .OnErrorResumeNext()
     .Repeat()
 
   loadPaymentTemplates.Subscribe(justReloadThePage)
