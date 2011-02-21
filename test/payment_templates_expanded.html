@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi" lang="fi"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>bank</title>
+<link rel="stylesheet" media="screen" href="./files/style.css" type="text/css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/rx.js"></script>
+<script type="text/javascript" src="../js/rx.jQuery.js"></script>
+<script type="text/javascript" src="../js/rx.html.js"></script>
+<script type="text/javascript" src="../js/rx.aggregates.js"></script>
+<script type="text/javascript" src="../js/rx.joins.js"></script>
+<script type="text/javascript" src="../fix-my-bank.user.js"></script>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr><td colspan="3" id="wrap">
+<div id="top-out">
+<div id="top">
+<div id="title-out">
+  <div id="title"> Bank </div>
+</div>
+<form action="./crappybank.html" method="POST" enctype="application/x-www-form-urlencoded" name="log_out" id="log_out" accept-charset="ISO-8859-1"><input type="hidden" name="usecase" value="base"><input type="hidden" name="command" value="formcommand"><input type="hidden" name="guid" value="2U1HzgKAAAZrEBsDao1FMgCC"><input type="hidden" name="commandorigin" value="0.topcellcontainerview"><input type="hidden" name="fpid" value="MIobw3phFrcl3FO7gydl6gCC3442422681267509661xxxxxxxxx"><input type="hidden" name="hash" value="TcC5OGVoE3XVlAI6uBbf6QCC">
+<div id="btn-out">
+	<div id="log_out">
+<p>
+	<a href="" id="log_out_button">&nbsp;&nbsp;&nbsp;&nbsp;Lopeta&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</p>
+</div>
+</div>
+</form>
+<div id="mainNavigation-out">
+<div id="mainNavigation">
+<div id="toolbar-out">
+<div id="toolbar_for_shortcuts">
+	<div id="container">
+	<ul id="nav">
+<li class="nocolor_last"><a href="" target="_blank">Ohje</a></li>
+<li class="nocolor"><a href="">Posti</a></li>
+<li class="genvag"><a href="">Oikopolut<img class="arrowdown" src="./files/p_arrowdown.gif" alt=""></a>
+<ul class="select-free">
+<li><a href="">Korttihakemukset</a></li>
+<li><a href="" target="">Joustoluotto</a></li>
+<li><a href="" target="">Asuntolaina</a></li>
+<li><a href="">Veikkaus</a></li>
+<li>&nbsp;</li>
+<li><a href="">Lisää tämä sivu</a></li>
+<li><a href="">Muokkaa oikopolkuja</a></li>
+</ul>
+</li>
+</ul>
+	</div>
+</div>
+</div>
+<div id="tabs-out">
+<div id="tabs">
+<ul>
+<li id="current"><a href="">Päivittäiset raha-asiat</a></li>
+<li><a href="">Sijoittaminen</a></li>
+<li><a href="">Lainat</a></li>
+<li><a href="">Vakuutukset</a></li>
+<li><a href="">Tietoa palveluista</a></li>
+<li><a href="">Muokkaa verkkopankkia</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="padding"></div>
+</td></tr>
+<tr>
+	<td class="b"><div>
+<div class="sublevel">
+<a href="./crappybank.html">Uusi maksu</a>
+<a href="./crappybank.html">Siirto omalle tilille</a>
+<a class="null" href="./invoice_ops.html">Muut maksuasiat</a>
+<div class="indentedsublevel">
+<a href="./crappybank.html">Maksu ulkomaille</a>
+<a href="./crappybank.html">Saajaluettelo</a>
+<a href="./crappybank.html">Vahvistettavat maksut</a>
+<a href="./crappybank.html">Erääntyvät maksut</a>
+<a id="currentpage" href="./payment_templates.html">Maksupohjat</a>
+<a href="./crappybank.html">Suoraveloitusvaltakirjat</a>
+<a href="./crappybank.html">SEPA-suoraveloitus<img src="./files/p_arrowright_light_12x9.gif" alt="SEPA-suoraveloitus"></a>
+</div>
+<a href="./crappybank.html">E-laskut <img src="./files/p_arrowright_light_12x9.gif" alt="E-laskut "></a>
+<a href="./crappybank.html">Tilit<img src="./files/p_arrowright_light_12x9.gif" alt="Tilit"></a>
+<a href="./crappybank.html">Kortit<img src="./files/p_arrowright_light_12x9.gif" alt="Kortit"></a>
+<a href="./crappybank.html">Yhteenveto</a>
+<a href="./crappybank.html">Mobiilipalvelut<img src="./files/p_arrowright_light_12x9.gif" alt="Mobiilipalvelut"></a>
+<a href="./crappybank.html">Lisäpalvelut<img src="./files/p_arrowright_light_12x9.gif" alt="Lisäpalvelut"></a>
+<a href="./crappybank.html">Ostaminen ja asiointi verkossa<img src="./files/p_arrowright_light_12x9.gif" alt="Ostaminen ja asiointi verkossa"></a>
+</div>
+</div></td>
+	<td class="m_lt">&nbsp;</td>
+	<td class="cd">
+	<a class="nodisplay" href="" id="startcontent" accesskey="2">Main content starts</a>
+</div>
+<h1>Maksupohjat</h1>
+<script type="text/javascript">
+var doselectsubmit = false;
+function autoSelect(curForm, command)
+{
+ //curForm.name = command;
+ if (curForm.defaultcommand)
+ 	curForm.defaultcommand.value = command;
+ curForm.submit();
+}
+function checkSelectClick(curForm)
+{
+ if (doselectsubmit == true){
+     doselectsubmit = false;
+     curForm.submit();
+ } else {
+  doselectsubmit = true
+ }
+}
+</script>
+<form action="./payment_templates_expanded.html" method="POST" enctype="application/x-www-form-urlencoded" name="paymentlogsearch" id="paymentlogsearch" accept-charset="ISO-8859-1" target="_top" autocomplete="off"><input type="hidden" name="usecase" value="base"><input type="hidden" name="command" value="formcommand"><input type="hidden" name="guid" value="2U1HzgKAAAZrEBsDao1FMgCC"><input type="hidden" name="commandorigin" value="0.ucpaymentpaymenthistoryinput"><input type="hidden" name="fpid" value="MIobw3phFrcl3FO7gydl6gCC3442422681267509661xxxxxxxxx"><input type="hidden" name="hash" value="TcC5OGVoE3XVlAI6uBbf6QCC">
+<input type="hidden" name="servenext" value="./payment_templates_expanded.html" />
+<div class="noprint">
+<h3 class="bar1">
+Tilin valinta
+</h3>
+<div class="tborder1">
+	<table cellpadding="2" cellspacing="0">
+	<colgroup>
+	<col class="first" width="25%" align="left">
+	<col class="last" width="75%">
+	</colgroup>
+		<tbody><tr>
+			<td class="first">Tililtä:</td>
+			<td class="last">
+				<select name="paymentlogfromaccount" id="paymentlogfromaccount"><option selected="selected" value="0">valitse kaikki</option><option value="1">
+					FI27 1111 9090 4567 123&nbsp;&nbsp;&nbsp;&nbsp;38,65+
+				</option><option value="2">
+					FI27 6666 9090 4567 123&nbsp;&nbsp;&nbsp;&nbsp;0,35+
+				</option></select>
+			</td>
+		</tr>
+	</tbody></table>
+</div>
+<p class="buttonsright">
+<input name="paymentlog$searchpaymentlog" class="button" type="submit" value="   Hae   ">
+</p>
+</div>
+<br>
+<h3 class="bar1">
+Maksupohjat
+</h3>
+<div class="tborder1">
+		<table cellpadding="2" cellspacing="0" width="100%">
+			<colgroup span="9">
+				<col class="first" align="left" width="17%">
+				<col align="left" width="22%">
+				<col align="left" width="23%" class="nowrap">
+				<col align="right" width="14%">
+				<col align="right" width="3%">				
+				<col align="left" width="12%">
+				<col align="center" width="3%">
+				<col align="center" width="3%">
+				<col class="last" align="center" width="3%">
+			</colgroup>			
+			<tbody><tr class="odd1">
+				<th class="first" align="left">Maksupäivä
+             	<a href=""><img src="./files/sort_ud.gif" alt=""></a>
+				</th>
+				<th cssclass="first" align="left">Saaja
+             	<a href=""><img src="./files/sort_ud.gif" alt=""></a>
+				</th>				
+				<th align="left">Tilille
+             	<a href=""><img src="./files/sort_ud.gif" alt=""></a>
+				</th>
+				<th class="forceright">Määrä
+             	<a href=""><img src="./files/sort_ud.gif" alt=""></a>
+				</th>
+				<th align="left">&nbsp;</th>
+				<th align="left">Tila
+             	<a href=""><img src="./files/sort_ud.gif" alt=""></a>
+				</th>
+				<th>&nbsp;</th>
+					<th align="left">&nbsp;</th>
+					<th align="left">&nbsp;</th>
+			</tr>
+			<tr class="even">
+				<td class="first"><a href="">17.02.2011</a></td>
+				<td>MEUROCARD OY</td>
+				<td>
+					FI27 2222 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;20.193,20+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="odd1">
+				<td class="first"><a href="">09.02.2011</a></td>
+				<td>GOLDMAN, SACHS &amp; CO.</td>
+				<td>
+					FI27 3333 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;3.510.681,29+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="even">
+				<td class="first"><a href="">09.02.2011</a></td>
+				<td>XE SERVICES LLC</td>
+				<td>
+					FI27 5555 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;270.120,47+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="odd1">
+				<td class="first"><a href="">09.02.2011</a></td>
+				<td>NCB CAIMAN LIMITED</td>
+				<td>
+					FI27 7777 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;148.123,25+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="even">
+				<td class="first"><a href="">09.02.2011</a></td>
+				<td>BUSHMASTER FIREARMS INTER...</td>
+				<td>
+					FI27 8888 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;41.310,00+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="odd1">
+				<td class="first"><a href="">09.02.2011</a></td>
+				<td>HSBC BERMUDA</td>
+				<td>
+					FI27 9999 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;999.012,99+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="even">
+				<td class="first"><a href="">03.01.2011</a></td>
+				<td>LGT GROUP LIECHTENSTEIN</td>
+				<td>
+					FI27 0000 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;1.000.183,39+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="odd1">
+				<td class="first"><a href="">27.09.2010</a></td>
+				<td>BANK OF BAHAMAS INTERNAT...</td>
+				<td>
+					FI27 1212 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;116.000,00+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr><tr class="even">
+				<td class="first"><a href="">06.05.2010</a></td>
+				<td>BANCO NACIONAL ULTRAMARINO</td>
+				<td>
+					FI27 3434 9090 4567 123
+				</td>
+				<td align="right">
+					&nbsp;370.311,80+
+				</td>
+				<td>							
+				</td>	
+				<td>
+				    Maksettu
+				</td>
+							<td class="mode noprint">
+								<a href="">Muuta</a>
+							</td>
+						<td class="last noprint">
+							<a href="">Kopioi</a>
+						</td>
+						<td align="right" class="last noprint">
+							<a href="">Poista</a>
+						</td>
+			</tr>
+      			<tr class="odd1">
+        			<th>&nbsp;</th>
+        			<td class="first" colspan="2" align="left">&nbsp;</td>
+        			<th class="forceright">&nbsp;6.085.431,39+</th>				
+					<td class="first" colspan="3" align="left">&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+				</tr>
+		</tbody></table>
+</div>
+<br>
+</form>
+</tbody></table>
+</body></html>
