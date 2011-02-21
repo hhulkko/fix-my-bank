@@ -10,8 +10,6 @@
 // ==UserScript==
 
 $(document).ready(function() {
-  $('<style type="text/css">.hh-highlight {background: yellow !important;}</style>').appendTo('head')
-
   var rx = Rx.Observable
   var key = { j:74, k:75, m:77, enter:13 }
 
@@ -45,7 +43,7 @@ $(document).ready(function() {
     .OnErrorResumeNext()
     .Repeat()
 
-  loadPaymentTemplates.Subscribe(justReloadThePage)
+  loadPaymentTemplates.Subscribe(justReloadThePage, showErrorMessage)
   selectedPayment.Subscribe(highlight)
   selectedPayment.Zip(selectedPayment.Skip(1), fst).Subscribe(unhighlight)
   paymentOnEnter.Subscribe(gotoUrl)
@@ -56,7 +54,6 @@ $(document).ready(function() {
   function loadHtml(url) {
     return $.ajaxAsObservable({url: url, dataType: 'html'})
       .Select(function(d) { return d.data == undefined ? '' : d.data })
-      .Catch(rx.Return('error'))
   }
 
   // element -> Observable String
@@ -87,10 +84,30 @@ $(document).ready(function() {
   function always(x) { return function() { return x }}
   function asIndexOf(e) { return function(x) { return (e.length + (x % e.length)) % e.length }}
   function fst(x, y) { return x }
-  function highlight(elem) { $(elem).addClass('hh-highlight') }
-  function unhighlight(elem) { $(elem).removeClass('hh-highlight') }
   function trace(x) { GM_log(x) }
+  function highlight(elem) { $(elem).addClass('fmb-highlight') }
+  function unhighlight(elem) { $(elem).removeClass('fmb-highlight') }
   function gotoUrl(u) { window.location.replace(u) }
   function justReloadThePage() { window.location.reload() }
   function isDefined(x) { return typeof x != 'undefined' }
+
+  function showErrorMessage(e) {
+    var error = e.xmlHttpRequest.responseXML.documentURI + ' ' + e.xmlHttpRequest.status + ' ' + e.errorThrown
+    $('.fmb-error').find('.fmb-notice').html('<h1>Fix-my-bank has problems:</h1>' + error)
+    $('.fmb-error').fadeIn()
+  }
+
+  // Add styles
+  $('<style type="text/css">                                                  \
+      .fmb-error h1 { margin-bottom:1px }                                     \
+      .fmb-error { background-color:#FFD19F; border:1px solid #79424B;        \
+        height:30px; padding:3px; color:#5F3F1D; position:absolute;           \
+        left:0; bottom:0; display:none; }                                     \
+      .fmb-notice { background-color:#FFA644; height:100%; font-size:0.6em; } \
+      table { border-collapse: collapse; }                                    \
+      .fmb-highlight { border:1px solid #5F3F1D;                              \
+        background-color:#F4F44B !important; }                                \
+    </style>                                                                  \
+    <div class="fmb-error"><div class="fmb-notice"></div></div>               '
+  ).appendTo('body')
 })
